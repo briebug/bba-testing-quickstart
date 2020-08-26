@@ -52,6 +52,13 @@
     },
     "testing": {
       "tags": []
+    },
+    "examples": {
+      "tags": []
+    },
+    "examples-e2e": {
+      "tags": [],
+      "implicitDependencies": ["examples"]
     }
   }
 }

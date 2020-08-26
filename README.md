@@ -1,41 +1,34 @@
-# BbaReactiveAngular
+# Briebug Academy Testing Quickstart
 
-This project was generated using [Nx](https://nx.dev).
+This is the sample project for the Testing Quickstart course from BrieBug Academy. 
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+The sample project includes an Angular web application and a mock RESTful API within an Nx workspace by NRWL. The Angular application uses the state and data libs to manage state and handle server communication. The state lib is built around NgRx so that the application is entirely reactive. 
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+## Prerequisites
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- Node.js and NPM – we recommend using [NVM (Linux/Mac)](https://github.com/creationix/nvm) or [NVM-Windows (Windows)](https://github.com/coreybutler/nvm-windows)
+- Install Angular CLI via `npm i -g @angular/cli`
 
-## Quick Start & Documentation
+## Web: Getting Started
 
-[Nx Documentation](https://nx.dev/angular)
+```
+git clone https://github.com/briebug/bba-testing-quickstart.git
+cd bba-testing-quickstart
+npm i
+npm run serve:all
+```
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+The `serve:all` command is a convenience methods that runs the other commands concurrently. You can run each command separately if you need to. 
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+```
+"serve:web": "ng serve --open",
+"serve:api": "json-server server/db.json",
+"serve:all": "concurrently \"npm run serve:api\" \"npm run serve:web\" \"npm run serve:mobile\""
+```
 
-## Adding capabilities to your workspace
+The web application will open to [http://localhost:4200](http://localhost:4200) in your browser.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+You can see the API by navigating to [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Generate an application
 
@@ -81,18 +74,3 @@ Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
