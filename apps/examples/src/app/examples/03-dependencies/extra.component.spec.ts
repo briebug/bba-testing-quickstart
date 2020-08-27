@@ -1,19 +1,20 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ExtraComponent } from './extra.component';
 import { MaterialModule } from '@bba/material';
-// import { ExtraService } from './extra.service';
+
+import { ExtraComponent } from './extra.component';
+import { ExtraService } from './extra.service';
 
 describe('ExtraComponent', () => {
   let component: ExtraComponent;
   let fixture: ComponentFixture<ExtraComponent>;
   let de: DebugElement;
-  // let extraService: ExtraService;
+  let extraService: ExtraService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ExtraComponent],
-      // providers: [ExtraService], // Why isn't this throwing a helpful error?
+      providers: [ExtraService],
       imports: [MaterialModule],
     }).compileComponents();
   }));
