@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MaterialModule } from '@bba/material';
@@ -15,7 +16,7 @@ describe('ExtraComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ExtraComponent],
       providers: [ExtraService],
-      imports: [MaterialModule],
+      imports: [MaterialModule, HttpClientModule],
     }).compileComponents();
   }));
 
