@@ -3,15 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { Widget } from '../../shared';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RefactorService {
   price;
   mode;
   widgets: Widget[];
 
-  constructor() {
-  }
+  constructor() {}
 
   reCalculateTotal(mode, widgets, newWidget) {
     this.widgets = this.updateWidgets(mode, widgets, newWidget);
@@ -32,16 +31,18 @@ export class RefactorService {
   }
 
   addWidget(widgets, widget) {
-    const newWidget = Object.assign({}, widget, {id: uuidv4()});
+    const newWidget = Object.assign({}, widget, { id: uuidv4() });
     return [...widgets, newWidget];
   }
 
   updateWidget(widgets, widget) {
-    return widgets.map(wdgt => (widget.id === wdgt.id) ? Object.assign({}, widget) : wdgt);
+    return widgets.map((wdgt) =>
+      widget.id === wdgt.id ? Object.assign({}, widget) : wdgt
+    );
   }
 
   deleteWidget(widgets, widget) {
-    return widgets.filter(wdgt => widget.id !== wdgt.id);
+    return widgets.filter((wdgt) => widget.id !== wdgt.id);
   }
 
   getTotalPrice(widgets) {

@@ -3,16 +3,13 @@ import { RefactorService } from './refactor.service';
 import { Widget } from '../../shared/widget.model';
 
 describe('RefactorService', () => {
-  let injector: TestBed;
   let service: RefactorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RefactorService]
+      providers: [RefactorService],
     });
-
-    injector = getTestBed();
-    service = injector.get(RefactorService);
+    service = TestBed.inject(RefactorService);
   });
 
   it('should call updateWidgets and getTotalPrice on reCalculateTotal', () => {
@@ -25,7 +22,11 @@ describe('RefactorService', () => {
 
     service.reCalculateTotal(mockMode, mockWidgets, mockWidget);
 
-    expect(service.updateWidgets).toHaveBeenCalledWith(mockMode, mockWidgets, mockWidget);
+    expect(service.updateWidgets).toHaveBeenCalledWith(
+      mockMode,
+      mockWidgets,
+      mockWidget
+    );
     expect(service.getTotalPrice).toHaveBeenCalled();
   });
 
@@ -46,7 +47,12 @@ describe('RefactorService', () => {
 
   it('should add a widget on addWidget', () => {
     let widgets = [];
-    const widget = {id: null, name: 'new item', description: 'new item', price: 100};
+    const widget = {
+      id: null,
+      name: 'new item',
+      description: 'new item',
+      price: 100,
+    };
 
     expect(widgets.length).toBe(0);
 
@@ -56,8 +62,15 @@ describe('RefactorService', () => {
   });
 
   it('should update a widget on updateWidget', () => {
-    let widgets = [{id: 100, name: 'new item', description: 'new item', price: 100}];
-    const widget = {id: 100, name: 'UPDATED', description: 'WIDGET', price: 100};
+    let widgets = [
+      { id: 100, name: 'new item', description: 'new item', price: 100 },
+    ];
+    const widget = {
+      id: 100,
+      name: 'UPDATED',
+      description: 'WIDGET',
+      price: 100,
+    };
 
     widgets = service.updateWidget(widgets, widget);
 
@@ -65,8 +78,15 @@ describe('RefactorService', () => {
   });
 
   it('should delete a widget on deleteWidget', () => {
-    let widgets = [{id: 100, name: 'new item', description: 'new item', price: 100}];
-    const widget = {id: 100, name: 'new item', description: 'new item', price: 100};
+    let widgets = [
+      { id: 100, name: 'new item', description: 'new item', price: 100 },
+    ];
+    const widget = {
+      id: 100,
+      name: 'new item',
+      description: 'new item',
+      price: 100,
+    };
 
     expect(widgets.length).toBe(1);
 
@@ -77,9 +97,9 @@ describe('RefactorService', () => {
 
   it('should get total price on getTotalPrice', () => {
     const widgets: Widget[] = [
-      {id: 1, name: 'mock', description: 'mock', price: 100},
-      {id: 2, name: 'mock', description: 'mock', price: 200},
-      {id: 3, name: 'mock', description: 'mock', price: 300}
+      { id: 1, name: 'mock', description: 'mock', price: 100 },
+      { id: 2, name: 'mock', description: 'mock', price: 200 },
+      { id: 3, name: 'mock', description: 'mock', price: 300 },
     ];
 
     const total = service.getTotalPrice(widgets);

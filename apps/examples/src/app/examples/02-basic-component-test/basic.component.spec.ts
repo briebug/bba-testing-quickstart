@@ -1,35 +1,41 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { BasicComponent } from './basic.component';
 
-describe('BasicComponent', () => {
+describe('AppComponent', () => {
   let component: BasicComponent;
   let fixture: ComponentFixture<BasicComponent>;
   let de: DebugElement;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-      declarations: [ BasicComponent ]
-    })
-    .createComponent(BasicComponent);
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [BasicComponent],
+    }).compileComponents();
+  }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BasicComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
     fixture.detectChanges();
   });
 
-  it('sets `subject` to `world` by default', () => {
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should set `subject` to `world` by default', () => {
     expect(component.subject).toBe('world');
   });
 
-  it('greets the subject', () => {
+  it('should greet the subject', () => {
     const h1 = de.query(By.css('h1'));
     expect(h1.nativeElement.textContent).toBe('Hello world!');
   });
 
-  it('updates the subject', () => {
+  it('should update the subject', () => {
     component.subject = 'developer';
     fixture.detectChanges();
     const h1 = de.query(By.css('h1'));

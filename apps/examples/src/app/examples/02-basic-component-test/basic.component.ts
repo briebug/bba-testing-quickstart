@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'bba-simple',
   template: '<h1>Hello {{subject}}!</h1>'
 })
-export class BasicComponent implements OnInit {
+export class BasicComponent {
   subject = 'world';
-  constructor() { }
-  ngOnInit() { }
 }
