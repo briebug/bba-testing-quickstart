@@ -3,25 +3,23 @@ import { IsolatedService } from './isolated.service';
 describe('IsolatedService', () => {
   const service = new IsolatedService();
 
-  it('#getGreeting returns a `greeting`', done => {
-    service.getGreeting().then((res) => {
-      expect(res).toBe('Hello');
-      done();
-    });
+  it('should properly add two numbers', () => {
+    const result = service.add(1, 2);
+    expect(result).toBe(3);
   });
 
-  it('#getSubject returns current `subject`', done => {
-    service.subject = {name: 'infinity'};
-    service.getSubject().then((res) => {
-      expect(res).toBe('infinity');
-      done();
-    });
+  it('should properly subtract two numbers', () => {
+    const result = service.substract(2, 1);
+    expect(result).toBe(1);
   });
 
-  it('#getPunctuation returns `punctuation`', done => {
-    service.getPunctuation().then((res) => {
-      expect(res).toBe('!');
-      done();
-    });
+  it('should properly multiply two numbers', () => {
+    const result = service.multiply(2, 2);
+    expect(result).toBe(4);
+  });
+
+  it('should properly divide two numbers', () => {
+    const result = service.divide(4, 2);
+    expect(result).toBe(2);
   });
 });
