@@ -1,7 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RoutedComponent } from './routed.component';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { DebugElement } from '@angular/core';
 
 class RouterStub {
   navigateByUrl(url) {
@@ -10,41 +11,44 @@ class RouterStub {
 }
 
 class ActivatedRouteStub {
-  private subject = new BehaviorSubject({subject: 'planet'});
+  private subject = new BehaviorSubject({ subject: 'planet' });
   params = this.subject.asObservable();
 }
 
 describe('RoutedComponent', () => {
   let component: RoutedComponent;
   let fixture: ComponentFixture<RoutedComponent>;
+  let de: DebugElement;
   let router: Router;
   let activatedRoute: ActivatedRoute;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-        declarations: [RoutedComponent],
-        providers: [
-          {provide: Router, useClass: RouterStub},
-          {provide: ActivatedRoute, useClass: ActivatedRouteStub}
-        ]
-      })
-      .createComponent(RoutedComponent);
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [RoutedComponent],
+      providers: [
+        { provide: Router, useClass: RouterStub },
+        { provide: ActivatedRoute, useClass: ActivatedRouteStub },
+      ],
+    }).compileComponents();
+  }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(RoutedComponent);
     component = fixture.componentInstance;
-    router = fixture.debugElement.injector.get(Router);
-    activatedRoute = fixture.debugElement.injector.get(ActivatedRoute);
+    de = fixture.debugElement;
+    router = de.injector.get(Router);
+    activatedRoute = de.injector.get(ActivatedRoute);
 
     fixture.detectChanges();
   });
 
-  it('#goToItems navigates to `/items`', () => {
+  it('should navigates to `/items` when `goToItems` is called', () => {
     spyOn(router, 'navigateByUrl');
     component.goToItems();
     expect(router.navigateByUrl).toHaveBeenCalledWith('/items');
   });
 
-  it('sets the `subject` based on route parameters', () => {
+  it('should set the `subject` based on route params', () => {
     expect(component.subject).toBe('planet');
   });
-
 });
