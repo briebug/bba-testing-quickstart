@@ -49,3 +49,4 @@ export class RefactorService {
     return widgets.reduce((acc, curr) => acc + curr.price, 0);
   }
 }
+

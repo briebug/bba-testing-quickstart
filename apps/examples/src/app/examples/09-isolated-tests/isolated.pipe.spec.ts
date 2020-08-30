@@ -1,9 +1,11 @@
 import { IsolatedPipe } from './isolated.pipe';
 
 describe('IsolatedPipe', () => {
-  const pipe = new IsolatedPipe();
-  const exclamation = `Super happy to be here`;
+  let pipe: IsolatedPipe;
+  beforeEach(() => (pipe = new IsolatedPipe()));
+
   it('adds an exclamation mark to input', () => {
+    const exclamation = `Super happy to be here`;
     expect(pipe.transform(exclamation)).toBe(`${exclamation}!`);
   });
 });

@@ -17,19 +17,19 @@ describe('LifecycleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should initialize properly', () => {
+  it('should initialize `loaded` properly', () => {
+    expect(component.loaded).toBeTruthy();
+  });
+
+  it('should call `initData` on init', () => {
     const spy = spyOn(component, 'initData').and.callThrough();
-
     component.ngOnInit();
-
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should destroy properly', () => {
+  it('should call `purgeData` on destroy', () => {
     const spy = spyOn(component, 'purgeData').and.callThrough();
-
     component.ngOnDestroy();
-
     expect(spy).toHaveBeenCalled();
   });
 });

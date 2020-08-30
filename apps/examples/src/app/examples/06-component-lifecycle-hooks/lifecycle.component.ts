@@ -5,7 +5,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   template: '<h1>Lifecycle Hooks!</h1>'
 })
 export class LifecycleComponent implements OnInit, OnDestroy {
+  loaded = false;
   ngOnInit() {
+    this.loaded = true;
     this.initData();
   }
   ngOnDestroy() {

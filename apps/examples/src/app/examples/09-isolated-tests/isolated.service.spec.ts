@@ -1,7 +1,8 @@
 import { IsolatedService } from './isolated.service';
 
 describe('IsolatedService', () => {
-  const service = new IsolatedService();
+  let service: IsolatedService;
+  beforeEach(() => (service = new IsolatedService()));
 
   it('should properly add two numbers', () => {
     const result = service.add(1, 2);

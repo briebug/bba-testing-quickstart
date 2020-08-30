@@ -19,14 +19,18 @@ describe('UsersService', () => {
     service = TestBed.inject(UsersService);
   });
 
+  afterEach(() => {
+    httpTestingController.verify();
+  });
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
   describe('should call http.', () => {
-    it('should get() on service.all()', () => {
+    it('get() on service.all()', () => {
       service.all().subscribe((res) => {
-        expect(res).toEqual(mockUser);
+        expect(res).toEqual([mockUser]);
       });
 
       const req = httpTestingController.expectOne(service['getUrl']());
@@ -56,7 +60,7 @@ describe('UsersService', () => {
       httpTestingController.verify();
     });
 
-    it('put(url(model.id), model) on service.create(model)', () => {
+    it('put(url(model.id), model) on service.update(model)', () => {
       service.update(mockUser).subscribe((res) => {
         expect(res).toEqual(mockUser);
       });

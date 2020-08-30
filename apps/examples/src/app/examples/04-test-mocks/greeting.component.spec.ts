@@ -5,12 +5,7 @@ import { GreetingService } from './greeting.service';
 import { GreetingComponent } from './greeting.component';
 
 class GreetingServiceMock {
-  private subject = {
-    title: 'Mock',
-    description: 'ing bird!'
-  };
-  getSubject() { return this.subject; }
-  updateTitle(title) { this.subject.title = title; }
+  getSubject() { return { title: 'Mock' } }
 };
 
 describe('GreetingComponent', () => {
@@ -42,13 +37,5 @@ describe('GreetingComponent', () => {
   it('should greet the default service `subject`', () => {
     const h1 = de.query(By.css('h1')).nativeElement;
     expect(h1.textContent).toBe('Presenting Mock!');
-  });
-
-  it('updates component `subject` when service `name` is changed', () => {
-    greetingService.updateTitle('cosmos');
-    fixture.detectChanges();
-    expect(component.subject.title).toBe('cosmos');
-    const h1 = de.query(By.css('h1')).nativeElement;
-    expect(h1.textContent).toBe('Presenting cosmos!');
   });
 });
