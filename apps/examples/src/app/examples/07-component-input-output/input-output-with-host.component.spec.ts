@@ -3,6 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { InputOutputComponent } from './input-output.component';
 
+class TestInputOutputHostComponent {
+
+}
+
 // -------------------------------------------------------------------
 // CHALLENGE:
 // Write a host component to contain the child component
