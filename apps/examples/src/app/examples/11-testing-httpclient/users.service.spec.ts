@@ -6,6 +6,11 @@ import { TestBed } from '@angular/core/testing';
 import { mockUser } from '@bba/testing';
 import { UsersService } from './users.service';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Use HttpTestingController to complete the empty tests
+// Complete the `afterEach` function call to check for outstanding tests
+// -------------------------------------------------------------------
 describe('UsersService', () => {
   let httpTestingController: HttpTestingController;
   let service: UsersService;
@@ -20,7 +25,7 @@ describe('UsersService', () => {
   });
 
   afterEach(() => {
-    httpTestingController.verify();
+    // Finish this method
   });
 
   it('should be created', () => {
@@ -29,59 +34,22 @@ describe('UsersService', () => {
 
   describe('should call http.', () => {
     it('get() on service.all()', () => {
-      service.all().subscribe((res) => {
-        expect(res).toEqual([mockUser]);
-      });
-
-      const req = httpTestingController.expectOne(service['getUrl']());
-      req.flush([mockUser]);
-      httpTestingController.verify();
+      // Finish this test
     });
 
     it('get(url(model.id)) on service.find(model.id)', () => {
-      service.find(mockUser.id).subscribe((res) => {
-        expect(res).toEqual(mockUser);
-      });
-
-      const req = httpTestingController.expectOne(
-        service['getUrlWithId'](mockUser.id)
-      );
-      req.flush(mockUser);
-      httpTestingController.verify();
+      // Finish this test
     });
 
     it('post(url, model) on service.create(model)', () => {
-      service.create(mockUser).subscribe((res) => {
-        expect(res).toEqual(mockUser);
-      });
-
-      const req = httpTestingController.expectOne(service['getUrl']());
-      req.flush(mockUser);
-      httpTestingController.verify();
+      // Finish this test
     });
 
     it('put(url(model.id), model) on service.update(model)', () => {
-      service.update(mockUser).subscribe((res) => {
-        expect(res).toEqual(mockUser);
-      });
-
-      const req = httpTestingController.expectOne(
-        service['getUrlWithId'](mockUser.id)
-      );
-      req.flush(mockUser);
-      httpTestingController.verify();
     });
 
     it('delete(url(model.id)) on service.delete(model.id)', () => {
-      service.delete(mockUser).subscribe((res) => {
-        expect(res).toEqual(mockUser);
-      });
-
-      const req = httpTestingController.expectOne(
-        service['getUrlWithId'](mockUser.id)
-      );
-      req.flush(mockUser);
-      httpTestingController.verify();
+      // Finish this test
     });
   });
 });

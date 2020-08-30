@@ -1,19 +1,20 @@
 import { IsolatedComponent } from './isolated.component';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Instantiate the isolated component
+// Get remaining tests to pass
+// -------------------------------------------------------------------
 describe('IsolatedComponent', () => {
   let component: IsolatedComponent;
-  beforeEach(() => (component = new IsolatedComponent()));
+
+  // Instantiate this component
 
   it('should set current headline', () => {
-    const headline = 'mock headline';
-    component.setCurrentHeadline(headline);
-    expect(component.currentHeadline).toBe(headline);
+    // Finish this test
   });
 
   it('should check if headline is current', () => {
-    const realNews = 'Trust me, I am lying';
-    const fakeNews = 'If it is on the internet, it is true';
-    component.setCurrentHeadline(realNews);
-    expect(component.isCurrentHeadline(fakeNews)).toBeFalsy();
+    // Finish this test
   });
 });

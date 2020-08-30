@@ -1,22 +1,29 @@
 import { AsyncService } from './async.service';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Get the first test to pass by returning the result of an assertion
+// Get the second test to pass by using resolves
+// Get the third test to pass using async and await
+// Get the fourth test to pass using async and await with resolves
+// -------------------------------------------------------------------
 describe('AsyncService', () => {
-  const service = new AsyncService();
+  let service: AsyncService;
+  beforeEach(() => (service = new AsyncService()));
 
   it('should asynchronously add two numbers', () => {
-    return service.asyncAdd(1, 2).then((result) => expect(result).toBe(3));
+    // Finish this test
   });
 
   it('should asynchronously subtract two numbers', () => {
-    expect(service.asyncSubtract(2, 1)).resolves.toBe(1);
+    // Finish this test
   });
 
   it('should asynchronously multiply two numbers', async () => {
-    const result = await service.asyncMultiply(2, 2);
-    expect(result).toBe(4);
+    // Finish this test
   });
 
   it('should asynchronously divide two numbers', async () => {
-    await expect(service.asyncDivide(4, 2)).resolves.toBe(2);
+    // Finish this test
   });
 });

@@ -1,26 +1,28 @@
 import { IsolatedService } from './isolated.service';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Instantiate the isolated service
+// Get remaining tests to pass
+// -------------------------------------------------------------------
 describe('IsolatedService', () => {
   let service: IsolatedService;
-  beforeEach(() => (service = new IsolatedService()));
+
+  // Instantiate the service
 
   it('should properly add two numbers', () => {
-    const result = service.add(1, 2);
-    expect(result).toBe(3);
+    // Finish this test
   });
 
   it('should properly subtract two numbers', () => {
-    const result = service.substract(2, 1);
-    expect(result).toBe(1);
+    // Finish this test
   });
 
   it('should properly multiply two numbers', () => {
-    const result = service.multiply(2, 2);
-    expect(result).toBe(4);
+    // Finish this test
   });
 
   it('should properly divide two numbers', () => {
-    const result = service.divide(4, 2);
-    expect(result).toBe(2);
+    // Finish this test
   });
 });

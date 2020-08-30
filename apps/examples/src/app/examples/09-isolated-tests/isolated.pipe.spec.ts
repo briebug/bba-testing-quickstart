@@ -1,11 +1,16 @@
 import { IsolatedPipe } from './isolated.pipe';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Instantiate the isolated pipe
+// Get remaining tests to pass
+// -------------------------------------------------------------------
 describe('IsolatedPipe', () => {
   let pipe: IsolatedPipe;
-  beforeEach(() => (pipe = new IsolatedPipe()));
+
+  // Instantiate the pipe
 
   it('adds an exclamation mark to input', () => {
-    const exclamation = `Super happy to be here`;
-    expect(pipe.transform(exclamation)).toBe(`${exclamation}!`);
+    // Finish this test
   });
 });

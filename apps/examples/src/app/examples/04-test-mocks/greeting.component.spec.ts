@@ -7,9 +7,14 @@ import { GreetingComponent } from './greeting.component';
 // -------------------------------------------------------------------
 // CHALLENGE:
 // Create a greeting service mock
-// Inject the mock with useClass
+// Provide the mock with useClass
 // Get a reference to the service via the injector
 // -------------------------------------------------------------------
+
+class GreetingServiceMock {
+  // Complete this mock
+}
+
 describe('GreetingComponent', () => {
   let component: GreetingComponent;
   let fixture: ComponentFixture<GreetingComponent>;
@@ -19,6 +24,7 @@ describe('GreetingComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GreetingComponent],
+      // Provide the mock to the module
     }).compileComponents();
   }));
 
@@ -27,6 +33,8 @@ describe('GreetingComponent', () => {
     component = fixture.componentInstance;
     de = fixture.debugElement;
     fixture.detectChanges();
+
+    // Get references to the mock
   });
 
   it('should set the default `subject`', () => {

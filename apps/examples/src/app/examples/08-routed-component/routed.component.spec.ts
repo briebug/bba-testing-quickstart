@@ -4,15 +4,20 @@ import { RoutedComponent } from './routed.component';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { DebugElement } from '@angular/core';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Complete the router stub
+// Complete the activated router stub
+// Provide both stubs to the test module
+// Get a reference to both stubs via the injector
+// Update both tests so they pass
+// -------------------------------------------------------------------
 class RouterStub {
-  navigateByUrl(url) {
-    return url;
-  }
+  // Finish this stub
 }
 
 class ActivatedRouteStub {
-  private subject = new BehaviorSubject({ subject: 'planet' });
-  params = this.subject.asObservable();
+  // Finish this stub
 }
 
 describe('RoutedComponent', () => {
@@ -25,10 +30,7 @@ describe('RoutedComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RoutedComponent],
-      providers: [
-        { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useClass: ActivatedRouteStub },
-      ],
+      // Provide the stubs to the module
     }).compileComponents();
   }));
 
@@ -36,19 +38,16 @@ describe('RoutedComponent', () => {
     fixture = TestBed.createComponent(RoutedComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
-    router = de.injector.get(Router);
-    activatedRoute = de.injector.get(ActivatedRoute);
-
     fixture.detectChanges();
+
+    // Get references to the stubs
   });
 
   it('should navigates to `/items` when `goToItems` is called', () => {
-    spyOn(router, 'navigateByUrl');
-    component.goToItems();
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/items');
+    // Finish this test
   });
 
   it('should set the `subject` based on route params', () => {
-    expect(component.subject).toBe('planet');
+    // Finish this test
   });
 });

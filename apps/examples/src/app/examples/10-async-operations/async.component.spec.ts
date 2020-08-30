@@ -3,6 +3,12 @@ import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core
 import { AsyncComponent } from './async.component';
 import { AsyncService } from './async.service';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Get the first test to pass using async and whenStable
+// Get the second test to pass using fakeAsync and tick
+// Get the third test to pass by testing the min max thresholds
+// -------------------------------------------------------------------
 describe('AsyncComponent', () => {
   let component: AsyncComponent;
   let fixture: ComponentFixture<AsyncComponent>;
@@ -26,29 +32,14 @@ describe('AsyncComponent', () => {
   });
 
   it('should assign result if add is within threshold', async(() => {
-    component.add(4, 4);
-
-    fixture.detectChanges();
-
-    fixture.whenStable()
-      .then(() => {
-        expect(component.result).toBe(8);
-      })
+    // Finish this test
   }));
 
   it('should assign max if add is greater than max', fakeAsync(() => {
-    component.add(10, 20);
-
-    fixture.detectChanges();
-
-    tick();
-
-    expect(component.result).toBe(component.max);
+    // Finish this test
   }));
 
   it('should properly test min and max thresholds', () => {
-    expect(component.checkThreshold(5, 1, 10)).toBe(5);
-    expect(component.checkThreshold(20, 1, 10)).toBe(10);
-    expect(component.checkThreshold(-10, 1, 10)).toBe(1);
+    // Finish this test
   })
 });

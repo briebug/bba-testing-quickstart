@@ -23,11 +23,14 @@ describe('LifecycleComponent', () => {
   });
 
   it('should initialize `loaded` properly', () => {
+    // Finish this test
   });
 
   it('should call `initData` on init', () => {
+    // Finish this test
   });
 
   it('should call `purgeData` on destroy', () => {
+    // Finish this test
   });
 });
