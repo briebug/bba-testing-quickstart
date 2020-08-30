@@ -12,8 +12,8 @@ import { InputOutputComponent } from './input-output.component';
 })
 class TestInputOutputHostComponent {
   subject = 'galaxy';
-  completeGreeting: string;
-  onLeave(greeting: string) { this.completeGreeting = greeting; }
+  farewell: string;
+  onLeave(farewell: string) { this.farewell = farewell; }
 }
 
 describe('HostComponent', () => {
@@ -34,14 +34,14 @@ describe('HostComponent', () => {
     fixture.detectChanges();
   });
 
-  it('greets the @Input `subject`', () => {
+  it('should render the @Input `subject`', () => {
     const h1 = de.query(By.css('h1'));
     expect(h1.nativeElement.textContent).toBe('Hello galaxy!');
   });
 
-  it('says goodbye to the `subject`', () => {
+  it('should emit the proper message on depart', () => {
     const button = de.query(By.css('button'));
     button.triggerEventHandler('click', null);
-    expect(component.completeGreeting).toBe('Ciao galaxy!');
+    expect(component.farewell).toBe('Ciao galaxy!');
   });
 });

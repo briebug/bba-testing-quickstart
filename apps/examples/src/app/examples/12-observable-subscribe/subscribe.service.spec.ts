@@ -1,11 +1,13 @@
 import { Playlist, SubscribeService, Video } from './subscribe.service';
 
 describe('SubscribeService', () => {
-  const service = new SubscribeService();
   const firstVideo = { title: 'Video 01', duration: 1000 };
   const secondVideo = { title: 'Video 02', duration: 3000 };
   const thirdVideo = { title: 'Video 03', duration: 5000 };
   const fourthVideo = { title: 'Video 04', duration: 8000 };
+
+  let service: SubscribeService;
+  beforeEach(() => (service = new SubscribeService()));
 
   it('should properly filter a playlist based on duration', (done) => {
     const duration = 3000;

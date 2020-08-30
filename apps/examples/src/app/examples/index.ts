@@ -1,9 +1,0 @@
-export { BasicComponent } from './02-basic-component-test/basic.component';
-export { ServiceComponent } from './06-component-with-service/service.component';
-export { InputOutputComponent } from './07-component-input-output/input-output.component';
-export { RoutedComponent } from './08-routed-component/routed.component';
-export { IsolatedComponent } from './09-isolated-tests/isolated.component';
-export { IsolatedPipe } from './09-isolated-tests/isolated.pipe';
-export { IsolatedService } from './09-isolated-tests/isolated.service';
-export { AsyncServiceComponent } from './10-async-operations/async-service.component';
-export { RemoteComponent } from './11-testing-httpclient/remote.component';

@@ -1,7 +1,8 @@
 import { AsyncService } from './async.service';
 
 describe('AsyncService', () => {
-  const service = new AsyncService();
+  let service: AsyncService;
+  beforeEach(() => (service = new AsyncService()));
 
   it('should asynchronously add two numbers', () => {
     return service.asyncAdd(1, 2).then((result) => expect(result).toBe(3));
