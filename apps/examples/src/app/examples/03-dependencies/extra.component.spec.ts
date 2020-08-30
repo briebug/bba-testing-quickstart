@@ -5,6 +5,10 @@ import { MaterialModule } from '@bba/material';
 import { ExtraComponent } from './extra.component';
 import { ExtraService } from './extra.service';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Fix the TestBed so that the tests pass
+// -------------------------------------------------------------------
 describe('ExtraComponent', () => {
   let component: ExtraComponent;
   let fixture: ComponentFixture<ExtraComponent>;
@@ -13,8 +17,6 @@ describe('ExtraComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ExtraComponent],
-      providers: [ExtraService],
-      imports: [MaterialModule, HttpClientModule],
     }).compileComponents();
   }));
 

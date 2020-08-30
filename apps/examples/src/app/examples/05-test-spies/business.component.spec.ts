@@ -3,11 +3,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BusinessComponent } from './business.component';
 import { BusinessService, Transactions } from './business.service';
 
-class BusinessServiceMock {
-  add(x) {}
-  subtract(x) {}
-};
-
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Create a BusinessServiceMock
+// Inject the BusinessServiceMock using useClass
+// Get a referece to the BusinessServiceMock
+// Complete the test for spying on the add method
+// Complete the test for spying on the subtract method
+// Complete the test for spying on the save method
+// -------------------------------------------------------------------
 describe('BusinessComponent', () => {
   let component: BusinessComponent;
   let fixture: ComponentFixture<BusinessComponent>;
@@ -35,39 +39,11 @@ describe('BusinessComponent', () => {
   });
 
   it('should properly call `businessService.add`', () => {
-    const amount = 100;
-    const spy = spyOn(businessService, 'add').and.callThrough();
-
-    component.add(amount);
-
-    expect(spy).toHaveBeenCalledWith(amount);
   });
 
   it('should properly call `businessService.subtract`', () => {
-    const amount = 100;
-    const spy = spyOn(businessService, 'subtract').and.callThrough();
-
-    component.subtract(amount);
-
-    expect(spy).toHaveBeenCalledWith(amount);
   });
 
   it('should call the right method on `save`', () => {
-    const deposit = {
-      type: Transactions.DEPOSIT,
-      amount: 100
-    };
-    const withdrawal = {
-      type: Transactions.WITHDRAWAL,
-      amount: 10
-    };
-    const addSpy = spyOn(businessService, 'add').and.callThrough();
-    const subtractSpy = spyOn(businessService, 'subtract').and.callThrough();
-
-    component.save(deposit);
-    expect(addSpy).toHaveBeenCalledWith(deposit.amount);
-
-    component.save(withdrawal);
-    expect(subtractSpy).toHaveBeenCalledWith(withdrawal.amount);
   });
 });

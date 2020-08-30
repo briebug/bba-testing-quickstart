@@ -4,10 +4,12 @@ import { By } from '@angular/platform-browser';
 import { GreetingService } from './greeting.service';
 import { GreetingComponent } from './greeting.component';
 
-class GreetingServiceMock {
-  getSubject() { return { title: 'Mock' } }
-};
-
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Create a greeting service mock
+// Inject the mock with useClass
+// Get a reference to the service via the injector
+// -------------------------------------------------------------------
 describe('GreetingComponent', () => {
   let component: GreetingComponent;
   let fixture: ComponentFixture<GreetingComponent>;
@@ -17,7 +19,6 @@ describe('GreetingComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GreetingComponent],
-      providers: [{ provide: GreetingService, useClass: GreetingServiceMock }],
     }).compileComponents();
   }));
 
@@ -26,8 +27,6 @@ describe('GreetingComponent', () => {
     component = fixture.componentInstance;
     de = fixture.debugElement;
     fixture.detectChanges();
-
-    greetingService = de.injector.get(GreetingService);
   });
 
   it('should set the default `subject`', () => {

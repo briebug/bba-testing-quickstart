@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 import { Widget } from '../../shared';
 
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Refactor this service so that the tests pass
+// -------------------------------------------------------------------
 @Injectable({
   providedIn: 'root',
 })
@@ -10,43 +14,24 @@ export class RefactorService {
   mode;
   widgets: Widget[];
 
-  constructor() {}
-
-  reCalculateTotal(mode, widgets, newWidget) {
-    this.widgets = this.updateWidgets(mode, widgets, newWidget);
-    this.price = this.getTotalPrice(this.widgets);
-  }
-
-  updateWidgets(mode, widgets, newWidget) {
-    switch (mode) {
+  reCalculateTotal(widget: Widget) {
+    switch (this.mode) {
       case 'create':
-        return this.addWidget(widgets, newWidget);
+        const newWidget = Object.assign({}, widget, { id: uuidv4() });
+        this.widgets = [...this.widgets, newWidget];
+        break;
       case 'update':
-        return this.updateWidget(widgets, newWidget);
+        this.widgets = this.widgets.map((wdgt) =>
+          widget.id === wdgt.id ? Object.assign({}, widget) : wdgt
+        );
+        break;
       case 'delete':
-        return this.deleteWidget(widgets, newWidget);
+        this.widgets = this.widgets.filter((wdgt) => widget.id !== wdgt.id);
+        break;
       default:
-        return widgets;
+        break;
     }
-  }
 
-  addWidget(widgets, widget) {
-    const newWidget = Object.assign({}, widget, { id: uuidv4() });
-    return [...widgets, newWidget];
-  }
-
-  updateWidget(widgets, widget) {
-    return widgets.map((wdgt) =>
-      widget.id === wdgt.id ? Object.assign({}, widget) : wdgt
-    );
-  }
-
-  deleteWidget(widgets, widget) {
-    return widgets.filter((wdgt) => widget.id !== wdgt.id);
-  }
-
-  getTotalPrice(widgets) {
-    return widgets.reduce((acc, curr) => acc + curr.price, 0);
+    this.price = this.widgets.reduce((acc, curr) => acc + curr.price, 0);
   }
 }
-

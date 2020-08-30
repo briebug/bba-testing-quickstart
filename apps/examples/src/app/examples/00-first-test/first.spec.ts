@@ -1,5 +1,5 @@
-describe('First spec', () => {
-  it('should pass', () => {
-    expect(true).toBeTruthy();
-  });
-});
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Write your first test here
+// First, make it fail and then make it pass
+// -------------------------------------------------------------------

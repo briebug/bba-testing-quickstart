@@ -1,6 +1,6 @@
-import { getTestBed, TestBed } from '@angular/core/testing';
-import { RefactorService } from './refactor.service';
+import { TestBed } from '@angular/core/testing';
 import { Widget } from '../../shared/widget.model';
+import { RefactorService } from './refactor.service';
 
 describe('RefactorService', () => {
   let service: RefactorService;
