@@ -3,19 +3,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { InputOutputComponent } from './input-output.component';
 
-@Component({
-  template: `<bba-input-output
-    [subject]="subject"
-    (leave)="onLeave($event)">
-  </bba-input-output>
-  `
-})
-class TestInputOutputHostComponent {
-  subject = 'galaxy';
-  completeGreeting: string;
-  onLeave(greeting: string) { this.completeGreeting = greeting; }
-}
-
+// -------------------------------------------------------------------
+// CHALLENGE:
+// Write a host component to contain the child component
+// Make sure the host component initializes child component properly
+// Verify the child input is rendering correctly based on its input
+// Verify the child output is emitting the proper value
+// -------------------------------------------------------------------
 describe('HostComponent', () => {
   let component: TestInputOutputHostComponent;
   let fixture: ComponentFixture<TestInputOutputHostComponent>;
@@ -34,14 +28,9 @@ describe('HostComponent', () => {
     fixture.detectChanges();
   });
 
-  it('greets the @Input `subject`', () => {
-    const h1 = de.query(By.css('h1'));
-    expect(h1.nativeElement.textContent).toBe('Hello galaxy!');
+  it('should render the @Input `subject`', () => {
   });
 
-  it('says goodbye to the `subject`', () => {
-    const button = de.query(By.css('button'));
-    button.triggerEventHandler('click', null);
-    expect(component.completeGreeting).toBe('Ciao galaxy!');
+  it('should emit the proper message on leaving', () => {
   });
 });
