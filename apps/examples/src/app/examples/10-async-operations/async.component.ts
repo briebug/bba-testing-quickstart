@@ -12,23 +12,23 @@ export class AsyncComponent {
 
   constructor(private service: AsyncService) {}
 
-  add(a, b) {
-    this.service.asyncAdd(a, b).then((result) => {
-      this.result = this.checkThreshold(result, this.min, this.max);
-    });
-  }
+add(a, b) {
+  this.service.asyncAdd(a, b).then((result) => {
+    this.result = this.checkThreshold(result, this.min, this.max);
+  });
+}
 
-  subtract(a, b) {
-    this.service.asyncSubtract(a, b).then((result) => {
-      this.result = this.checkThreshold(result, this.min, this.max);
-    });
-  }
+subtract(a, b) {
+  this.service.asyncSubtract(a, b).then((result) => {
+    this.result = this.checkThreshold(result, this.min, this.max);
+  });
+}
 
-  checkThreshold(result, min, max) {
-    return result < min // is result less than min
-      ? min // if so, return min
-      : result > max // if not, is it greater than max
-      ? max // if so, return max
-      : result; // if not, return result
-  }
+checkThreshold(result, min, max) {
+  return result < min // is result less than min
+    ? min // if so, return min
+    : result > max // if not, is it greater than max
+    ? max // if so, return max
+    : result; // if not, return result
+}
 }
